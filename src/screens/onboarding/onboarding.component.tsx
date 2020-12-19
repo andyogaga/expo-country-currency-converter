@@ -10,7 +10,7 @@ import { withTheme, Icon, Theme } from "react-native-elements";
 import CustomText from "../../components/CustomText";
 import { useDispatch } from "react-redux";
 import { changeFromFirstTimer } from "../../store/actions/auth.actions";
-import FirstImage from "../../assets/icons/chat.png";
+import FirstImage from "../../assets/icons/country.png";
 import SecondImage from "../../assets/icons/chat.png";
 import { SCREEN_WIDTH, SCREEN_HEIGHT, TEXT_COLOR } from "../../utils/constants";
 import { Row, Col } from "react-native-easy-grid";

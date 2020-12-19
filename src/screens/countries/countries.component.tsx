@@ -1,8 +1,14 @@
 import React, { useCallback, useState } from "react";
-import { SafeAreaView, View, StyleSheet, FlatList } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  FlatList,
+  ScrollView,
+} from "react-native";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useFocusEffect } from "@react-navigation/native";
 import {
   clearCountries,
   getCountries,
@@ -71,7 +77,12 @@ const Countries = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#fff" }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "#fff",
+      }}
+    >
       <Formik
         onSubmit={searchCountries}
         initialValues={{ name: "", amount: "0" }}
@@ -98,7 +109,7 @@ const Countries = () => {
                   name="name"
                   errors={errors}
                   touched={touched}
-                  placeholder="England"
+                  placeholder="Nigeria"
                   label="Enter country name:"
                 />
               )}
@@ -131,6 +142,17 @@ const Countries = () => {
               >
                 {search === "currency" ? "Get Converted Currencies" : "Submit"}
               </CustomButton>
+              {search === "currency" && (
+                <CustomButton
+                  style={{ backgroundColor: "transparent" }}
+                  onPress={() => {
+                    setConverteds(null);
+                    setSearch("country");
+                  }}
+                >
+                  Go back
+                </CustomButton>
+              )}
             </View>
           );
         }}
@@ -140,11 +162,12 @@ const Countries = () => {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
+          paddingBottom: 20,
         }}
       >
         {
           <FlatList
-            style={{ width: "100%" }}
+            style={{ width: "95%" }}
             data={countries}
             renderItem={renderItem}
             keyExtractor={(item) => item.name}
@@ -160,7 +183,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   formContainer: {
-    width: SCREEN_WIDTH - 60,
+    width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT * 0.45,
     borderRadius: 30,
     paddingBottom: 16,

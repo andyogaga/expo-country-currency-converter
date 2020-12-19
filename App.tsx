@@ -18,7 +18,7 @@ import {
   SCREEN_HEIGHT,
   FADED,
 } from "./src/utils/constants";
-import Logo from "./src/assets/icons/chat.png";
+import Logo from "./src/assets/icons/country.png";
 import ErrorBoundary from "./src/components/ErrorBoundary";
 
 const persistor = persistStore(Store);
@@ -74,14 +74,3 @@ export default function App() {
     </ErrorBoundary>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
-
-/* eslint-disable react-native/no-inline-styles */
